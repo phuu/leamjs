@@ -1,0 +1,240 @@
+@import "normalize";
+@import "mixins/all";
+
+// Mixins
+
+.text-shadow (@shadow: 0 1px 1px rgba(0,0,0,.8)) {
+  text-shadow: @shadow;
+}
+
+// ClearLess config
+
+@using-modernizr: true;
+@using-ieclasses: true;
+@base-font-size: 20;
+
+@import "h5bp/h5bp";
+
+/* ==========================================================================
+   Styles
+   ========================================================================== */
+
+// Color, typography & general layout
+
+@c-main: #2EAD76;
+@c-main-alt: darken(@c-main, 10);
+@c-text: #fff;
+@c-bg: #232725;
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: lighten(@c-main, 40);
+  font-weight: bold;
+  background: rgba(0,0,0,.2);
+  padding: 0.2em 0.3em;
+  text-decoration: none;
+
+  &:hover {
+    color: white;
+  }
+}
+
+body {
+  background: @c-bg;
+  color: @c-text;
+  font: 1.25em/1.5 'anivers', sans-serif;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  font-weight: 200;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+p {
+  margin: 0.667em 0 1.5em;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wf-loading {
+  /* Hide the blog title and post titles while web fonts are loading */
+  visibility: hidden;
+}
+
+// Layout
+
+.container {
+  background: transparent url(../img/corner.png) no-repeat top left;
+  background-position-y: 2.5em;
+  .transition( all 0.3s ease );
+  width: 320px;
+  margin: 0 auto;
+}
+
+header {
+  height: 320px;
+  position: relative;
+  padding-top: 2.5em;
+  .transition( all 0.3s ease );
+
+  h1 {
+    a {
+      padding: 0;
+      background: none;
+      color: white;
+    }
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.5em; 
+    padding-left: 1.5em;
+    span {
+      text-transform: lowercase;
+      font-weight: normal;
+      font-style: italic;
+    }
+  }
+
+  h2, h3 {
+    font-size: 0.667em;
+    padding-left: 1em;
+  }
+
+  h3 {
+    margin-top: 0.5em;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+
+  nav {
+    position: absolute;
+    top: 0;
+    font-size: 0.667em;
+    overflow: hidden;
+    
+    a {
+      font-weight: normal;
+    }
+
+    ul {
+      list-style: none;
+      opacity: 1;
+      .transition( all 0.3s ease );
+      padding: 0;
+      margin: 0.5em 0 0 2.5em;
+      float: left;
+      li {
+        display: block;
+        margin: 0.5em 0;
+        float: left;
+        margin-right: 0.5em;
+      }
+    }
+
+    .nav {
+      line-height: 1;
+      display: block;
+      float: left;
+      background: none;
+      font-size: 2.5em;
+      padding-left: 0.444em;
+    }
+  }
+
+}
+
+.closed {
+  .container {
+    background-position-y: 0;
+  }
+
+  header {
+    padding-top: 0em;
+  }
+
+  nav {
+    ul {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.main {
+  position: relative;
+  top: -8em;
+  padding: 0 0.667em;
+
+  .talk {
+    text-align: right;
+    img {
+      width: 60px;
+      border-radius: 30px;
+    }
+    hgroup {
+      margin-bottom: 0.444em;
+      float: right;
+      h1 {
+        font-size: 1em;
+      }
+    }
+    p {
+      padding-left: 1em;
+      font-size: 0.667em;
+      clear: both;
+    }
+  }
+
+  .talk:first-child {
+    hgroup {
+      width: 200px;
+    }
+  }
+
+}
+
+footer {
+  background: darken(@c-bg, 3);
+  border-top: 1px solid black;
+  padding: 2.5em 1em;
+  font-size: 0.667em;
+  h1 {
+    a {
+      padding: 0;
+      background: none;
+      color: white;
+    }
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.5em; 
+    span {
+      text-transform: lowercase;
+      font-weight: normal;
+      font-style: italic;
+    }
+  }
+}
+
+
+
+@import "h5bp/helper";
+
+/* ==========================================================================
+  Media Queries
+   ========================================================================== */
+
+
+@import "h5bp/print";
